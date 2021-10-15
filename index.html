@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Star Wars </title>
+    <!-- fonts from google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap" rel="stylesheet">
+    <!-- end of fonts from google -->
+    <!-- fonts from font awesome -->
+    <script src="https://kit.fontawesome.com/52f2afaff9.js" crossorigin="anonymous"></script>
+    <!-- end of fonts from font awesome -->
+    <!-- main styles -->
     <link rel="stylesheet" href="./style/index.css">
 </head>
 <body>
@@ -21,14 +30,20 @@
         <!-- end of header tag -->
         <!-- search input container -->
         <div class="search-input-container">
-            <input type="text" class="search-input" placeholder="Find Luke would you ?">
+            <div class="icon-and-input-container">
+                <i class="fas fa-binoculars"></i>
+                <input type="text" class="search-input" placeholder="Find Luke would you ?">
+            </div>
         </div>
         <!-- end of search input container -->
         <!-- main display container -->
         <div id="main-display-container">
             <!-- back/return button container -->
             <div class="back-button-container">
-                <button class="back-btn"><i class="fas fa-carret-left"></i>Back</button>
+                <button class="back-btn">
+                    <i class="fas fa-hand-point-left"></i>
+                    Back
+                </button>
             </div>
             <!-- end of back/return button container -->
             <!-- all characters tile display container -->
@@ -38,25 +53,31 @@
                     <div class="character-img-container">
                         <img src="./assets/images/luke.jpg" alt="luke Skywalker" class="character-img">
                     </div>
-                </div>
-                <!-- ==== -->
-                <div class="character-mini-info-container">
                     <div class="mini character-name-container">
                         <h3 class="character-name">
                             Luke Skywalker
                         </h3>
                     </div>
+                </div>
+                <!-- ==== -->
                 <!-- end character tile -->
-            </div>
             <!-- end of all characters display container -->
+            </div>
             <!-- single character details display -->
             <div class="single-character-details-display">
 
             </div>
-            </div>
-            <!-- end of single character details display -->
+        <!-- end of single character details display -->
         </div>
         <!-- end of main display container -->
+        <!-- page buttons container -->
+        <div class="page-btn-container">
+            <button class="page-btn">
+            <i class="fas fa-angle-double-left"></i>Prev
+            </button>
+            <button class="page-btn">Next<i class="fas fa-angle-double-right"></i></button>
+        </div>
+        <!-- alt page buttons container -->
     </main>
     <!-- end of main -->
 </body>

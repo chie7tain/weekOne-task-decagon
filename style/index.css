@@ -1,5 +1,190 @@
-*, body, html{
-    margin: 0;
-    padding:0;
-    box-sizing: border-box;
+*,
+body,
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito Sans", sans-serif;
 }
+/* main styles defaults*/
+
+:root {
+  /* Dark Mode Elements */
+  --DarkBlue: hsl(209, 23%, 22%);
+  /* Dark Mode Background */
+  --Very-Dark-Blue: hsl(207, 26%, 17%);
+  /* Light Mode Text */
+  --other-Dark-Blue: hsl(200, 15%, 8%);
+  /* Light Mode Input) */
+  --Dark-Gray: hsl(0, 0%, 52%);
+  /* Light Mode Background */
+  --Very-Light-Gray: hsl(0, 0%, 98%);
+  /* Dark Mode Text & Light Mode Elements */
+  --White: hsl(0, 0%, 100%);
+  --border-radius: 7px;
+  --side-margin: 20px 20px;
+}
+@media only screen and (max-width: 375px) {
+  /* styles for main */
+  main {
+    background-color: var(--Very-Dark-Blue);
+  }
+  /* end of styles for main container */
+  /* styles for header */
+  header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0px;
+    background-color: var(--DarkBlue);
+  }
+  /* end of styles for header */
+  /* heading container */
+  .heading-container {
+    width: 50%;
+    color: var(--White);
+  }
+  /* end of heading container */
+  /* styles for heading */
+  .heading {
+    font-size: 1.2em;
+  }
+  /* end of styles for heading */
+  .dark-mode-toggle {
+    color: var(--White);
+  }
+  /* styles for search input container */
+  .search-input-container {
+    margin: var(--side-margin);
+    /* margin-top: 20px;
+    margin-bottom: 20px; */
+    display: flex;
+    justify-content: center;
+  }
+  .icon-and-input-container {
+    width: 100%;
+    position: relative;
+    border-radius: var(--border-radius);
+    -webkit-border-radius: var(--border-radius);
+    -moz-border-radius: var(--border-radius);
+    -ms-border-radius: var(--border-radius);
+    -o-border-radius: var(--border-radius);
+  }
+  .fa-binoculars {
+    position: absolute;
+    top: 10px;
+    left: 5px;
+    color: var(--White);
+  }
+  .search-input {
+    width: 100%;
+    height: 3em;
+    text-indent: 30px;
+    color: var(--White);
+    border: none;
+    background-color: var(--DarkBlue);
+    border-radius: var(--border-radius);
+    -webkit-border-radius: var(--border-radius);
+    -moz-border-radius: var(--border-radius);
+    -ms-border-radius: var(--border-radius);
+    -o-border-radius: var(--border-radius);
+  }
+  ::placeholder {
+    color: var(--White);
+  }
+  /* end of styles for search input container */
+  /* back-button-container */
+  .back-button-container {
+    margin: var(--side-margin);
+  }
+  .back-btn {
+    height: 35px;
+    width: 25%;
+    cursor: pointer;
+    border: none;
+    color: var(--White);
+    border-radius: var(--border-radius);
+    background-color: var(--DarkBlue);
+    -webkit-border-radius: var(--border-radius);
+    -moz-border-radius: var(--border-radius);
+    -ms-border-radius: var(--border-radius);
+    -o-border-radius: var(--border-radius);
+  }
+  /* end of back-button-container */
+  /* all-characters-tile-display */
+  .all-characters-tile-display {
+    padding: 20px 30px;
+  }
+  /* end of all-characters-tile-display */
+  /* styles for character tile */
+  .character-tile {
+    background-color: var(--DarkBlue);
+    color: var(--White);
+    text-align: center;
+    border-radius: var(--border-radius);
+    -webkit-border-radius: var(--border-radius);
+    -moz-border-radius: var(--border-radius);
+    -ms-border-radius: var(--border-radius);
+    -o-border-radius: var(--border-radius);
+    border: none;
+  }
+  .character-img-container {
+    height: 50%;
+  }
+  .character-img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: var(--border-radius);
+    -webkit-border-radius: var(--border-radius);
+    -moz-border-radius: var(--border-radius);
+    -ms-border-radius: var(--border-radius);
+    -o-border-radius: var(--border-radius);
+  }
+  /* end of styles for character tile */
+}
+/* end of mobile styles  */
+@media only screen and (min-width: 376px) and (max-width: 1440px) {
+  body {
+    background-color: aqua;
+  }
+}
+/* ## Layout
+
+The designs were created to the following widths:
+
+- Mobile: 375px
+- Desktop: 1440px
+
+## Colors
+
+### Neutral
+
+- Dark Blue (Dark Mode Elements): hsl(209, 23%, 22%)
+- Very Dark Blue (Dark Mode Background): hsl(207, 26%, 17%)
+- Very Dark Blue (Light Mode Text): hsl(200, 15%, 8%)
+- Dark Gray (Light Mode Input): hsl(0, 0%, 52%)
+- Very Light Gray (Light Mode Background): hsl(0, 0%, 98%)
+- White (Dark Mode Text & Light Mode Elements): hsl(0, 0%, 100%)
+
+## Typography
+
+### Body Copy
+
+- Homepage Items: 14px
+- Detail Page: 16px
+
+### Fonts
+
+- Family: [Nunito Sans](https://fonts.google.com/specimen/Nunito+Sans)
+- Weights: 300, 600, 800
+
+## Icons
+
+For the icons, you can use a font icon library. Don't worry if the icons that you choose don't look exactly like they do on the design.
+
+Some suggestions can be found below:
+
+- [Font Awesome](https://fontawesome.com)
+- [IcoMoon](https://icomoon.io)
+- [Ionicons](https://ionicons.com) */
