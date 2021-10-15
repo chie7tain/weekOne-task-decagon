@@ -4,8 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Star Wars </title>
+    <link rel="stylesheet" href="./style/index.css">
 </head>
 <body>
-    <!-- Write your implementation here -->
+    <!-- main -->
+    <main>
+        <!-- header tag -->
+        <header>
+            <div class="heading-container">
+                <h1 class="heading">Star Wars Characters</h1>
+            </div>
+            <div class="dark-mode-toggle">
+                <i class="fas fa-moon"></i> Dark Mode
+            </div>
+        </header>
+        <!-- end of header tag -->
+        <!-- search input container -->
+        <div class="search-input-container">
+            <input type="text" class="search-input" placeholder="Find Luke would you ?">
+        </div>
+        <!-- end of search input container -->
+        <!-- main display container -->
+        <div id="main-display-container">
+            <!-- back/return button container -->
+            <div class="back-button-container">
+                <button class="back-btn"><i class="fas fa-carret-left"></i>Back</button>
+            </div>
+            <!-- end of back/return button container -->
+            <!-- all characters tile display container -->
+            <div class="all-characters-tile-display">
+                <!-- character tile -->
+                <div class="character-tile">
+                    <div class="character-img-container">
+                        <img src="./assets/images/luke.jpg" alt="luke Skywalker" class="character-img">
+                    </div>
+                </div>
+                <!-- ==== -->
+                <div class="character-mini-info-container">
+                    <div class="mini character-name-container">
+                        <h3 class="character-name">
+                            Luke Skywalker
+                        </h3>
+                    </div>
+                <!-- end character tile -->
+            </div>
+            <!-- end of all characters display container -->
+            <!-- single character details display -->
+            <div class="single-character-details-display">
+
+            </div>
+            </div>
+            <!-- end of single character details display -->
+        </div>
+        <!-- end of main display container -->
+    </main>
+    <!-- end of main -->
 </body>
 </html>
