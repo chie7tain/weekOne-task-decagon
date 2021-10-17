@@ -40,14 +40,14 @@
         <div id="main-display-container">
             <!-- back/return button container -->
             <div class="back-button-container">
-                <button class="back-btn">
+                <button class="back-btn btn">
                     <i class="fas fa-hand-point-left"></i>
                     Back
                 </button>
             </div>
             <!-- end of back/return button container -->
             <!-- all characters tile display container -->
-            <div class="all-characters-tile-display">
+            <div class="all-characters-tile-display" data-character-display>
                 <!-- character tile -->
                 <div class="character-tile">
                     <div class="character-img-container">
@@ -61,6 +61,7 @@
                 </div>
                 <!-- ==== -->
                 <!-- end character tile -->
+
             <!-- end of all characters display container -->
             </div>
             <!-- single character details display -->
@@ -72,13 +73,18 @@
         <!-- end of main display container -->
         <!-- page buttons container -->
         <div class="page-btn-container">
-            <button class="page-btn">
-            <i class="fas fa-angle-double-left"></i>Prev
+            <button class="page-btn btn">
+                <i class="fas fa-angle-double-left"></i>
+                Prev
             </button>
-            <button class="page-btn">Next<i class="fas fa-angle-double-right"></i></button>
+            <button class="page-btn btn">
+                Next
+                <i class="fas fa-angle-double-right"></i>
+            </button>
         </div>
         <!-- alt page buttons container -->
     </main>
     <!-- end of main -->
+    <script src="./script/index.js"></script>
 </body>
 </html>
