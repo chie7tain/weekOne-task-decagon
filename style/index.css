@@ -23,6 +23,7 @@ html {
   --White: hsl(0, 0%, 100%);
   --border-radius: 7px;
   --side-margin: 20px 20px;
+  --main-transition: 0.3s all ease;
 }
 /* standard styles */
 /* styles for main */
@@ -93,10 +94,26 @@ header {
   color: var(--White);
 }
 /* end of styles for search input container */
+.main-display-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+}
 /* back-button-container */
 .back-button-container {
   margin: var(--side-margin);
+  transform: translate(-100%);
+  -webkit-transform: translateX(-100%);
+  -moz-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
+  -o-transform: translateX(-100%);
+  transition: var(--main-transition);
+  -webkit-transition: var(--main-transition);
+  -moz-transition: var(--main-transition);
+  -ms-transition: var(--main-transition);
+  -o-transition: var(--main-transition);
 }
+
 .btn {
   height: 35px;
   width: 25%;
@@ -112,7 +129,13 @@ header {
 }
 /* end of back-button-container */
 /* all-characters-tile-display */
-
+.all-characters-tile-display {
+  transition: var(--main-transition);
+  -webkit-transition: var(--main-transition);
+  -moz-transition: var(--main-transition);
+  -ms-transition: var(--main-transition);
+  -o-transition: var(--main-transition);
+}
 /* end of all-characters-tile-display */
 /* styles for character tile */
 .character-tile {
@@ -163,10 +186,13 @@ header {
   margin: 0px 10px;
 }
 /* end of styles for pagination container */
+
+/* styles for DOM Manipulation */
+
 @media only screen and (max-width: 375px) {
   .all-characters-tile-display {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     gap: 25px;
     padding: 10px 20px;
   }
@@ -188,8 +214,11 @@ header {
   .character-img-container-info {
     width: 50%;
     height: 50%;
+    border: 1px solid gold;
   }
-
+  .character-img {
+    max-width: 100%;
+  }
   .character-name-info {
     font-size: 1.5em;
   }
@@ -227,6 +256,22 @@ header {
     font-size: 1em;
     cursor: pointer;
   }
+}
+.hide-item {
+  display: none;
+  transition: var(--main-transition);
+  -webkit-transition: var(--main-transition);
+  -moz-transition: var(--main-transition);
+  -ms-transition: var(--main-transition);
+  -o-transition: var(--main-transition);
+}
+.show-item {
+  display: block;
+  transform: translateX(0%);
+  -webkit-transform: translateX(0%);
+  -moz-transform: translateX(0%);
+  -ms-transform: translateX(0%);
+  -o-transform: translateX(0%);
 }
 /* ## Layout
 

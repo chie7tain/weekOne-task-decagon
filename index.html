@@ -14,6 +14,7 @@
     <!-- end of fonts from font awesome -->
     <!-- main styles -->
     <link rel="stylesheet" href="./style/index.css">
+    <link rel="stylesheet" href="./style/spinner.css">
 </head>
 <body>
     <!-- main -->
@@ -46,10 +47,13 @@
                 </button>
             </div>
             <!-- end of back/return button container -->
+            <div class="spinner-wrapper">
+                <div class="spinner"></div>
+            </div>
             <!-- all characters tile display container -->
             <div class="all-characters-tile-display" data-character-display>
                 <!-- character tile -->
-                <div class="character-tile">
+                <!-- <div class="character-tile">
                     <div class="character-img-container">
                         <img src="./assets/images/luke.jpg" alt="luke Skywalker" class="character-img">
                     </div>
@@ -58,7 +62,7 @@
                             Luke Skywalker
                         </h3>
                     </div>
-                </div>
+                </div> -->
                 <!-- ==== -->
                 <!-- end character tile -->
 
@@ -73,11 +77,11 @@
         <!-- end of main display container -->
         <!-- page buttons container -->
         <div class="page-btn-container">
-            <button class="page-btn btn">
+            <button class="page-btn btn" id="prev-Btn" data-link="">
                 <i class="fas fa-angle-double-left"></i>
                 Prev
             </button>
-            <button class="page-btn btn">
+            <button class="page-btn btn" id="next-Btn" data-link="">
                 Next
                 <i class="fas fa-angle-double-right"></i>
             </button>
@@ -86,5 +90,6 @@
     </main>
     <!-- end of main -->
     <script src="./script/index.js"></script>
+    <!-- <script src="./script/app.js"></script> -->
 </body>
 </html>
