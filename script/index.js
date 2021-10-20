@@ -14,9 +14,13 @@ const backBtnContainer = document.querySelector(".back-button-container");
 const backBtn = document.querySelector(".back-btn");
 const spinner = document.querySelector(".spinner-wrapper");
 const pageBtnContainer = document.querySelector(".page-btn-container");
-const previousBtn = pageBtnContainer.querySelector("#prev-Btn");
-const nextBtn = pageBtnContainer.querySelector("#next-Btn");
-
+// const previousBtn = pageBtnContainer.querySelector("#prev-Btn");
+// const nextBtn = pageBtnContainer.querySelector("#next-Btn");
+const mainDisplayContainer = document.querySelector("#main-display-container");
+const inputcontainer = document.querySelector(".search-input-container");
+const searchInput = document.querySelector(".search-input");
+const mainContainer = document.querySelector(".main-container");
+const darkModeBtn = document.querySelector(".dark-mode-toggle");
 // end of DOM Elements
 
 let urlHolder = {
@@ -36,7 +40,7 @@ class Data {
       // const imageData = await (await fetch(imageUrl)).json();
       // console.log(imageData);
       let { count, next, previous, results } = data;
-      console.log(data);
+
       // using map we extract just what we need {name height and gender}
       results = results.map((character) => {
         let { name, height, gender, url } = character;
@@ -53,10 +57,11 @@ class UI {
   // display all characters
   static displayCharacters = (data, display) => {
     let charactersString = "";
-    let { results } = data;
-    results.forEach((character) => {
+    // let { results } = data;
+    // console.log(re)
+    data.forEach((character) => {
       charactersString += `
-      <div class="character-tile">
+      <div class="character-tile dark-mode-elements">
             <div class="character-img-container">
               <img src="./assets/characters/${parseInt(
                 Helper.getIdFromUrl(character.url)
@@ -100,6 +105,7 @@ class UI {
       let nameTag = name.dataset.name;
       name.addEventListener("click", (e) => {
         // get characters from storage
+        mainDisplayContainer.classList.add("add-height");
         backBtnContainer.classList.add("show-item");
         pageBtnContainer.classList.add("hide-item");
         character = Storage.retriveCharacter(nameTag);
@@ -115,25 +121,56 @@ class UI {
 
     backBtn.addEventListener("click", () => {
       pageBtnContainer.classList.remove("hide-item");
+      mainDisplayContainer.classList.remove("add-height");
       targetDom.classList.remove("hide-item");
       replacementDom.classList.add("hide-item");
       backBtnContainer.classList.remove("show-item");
       backBtnContainer.classList.remove("show-item");
     });
   };
-  // ======
-  static paginateCharacters = (charactersData, charactersDOM) => {
-    let {
-      count,
-      next: nextUrl,
-      previous: previousUrl,
-      results,
-    } = charactersData;
-    console.log(nextUrl);
-    nextBtn.addEventListener("click", () => {
-      mainUrl = nextUrl;
+  static searchCharacters = (data) => {
+    let { count, next, previous, results: characters } = data;
+
+    searchInput.addEventListener("keyup", (ursula) => {
+      let searchString = ursula.target.value.toLowerCase();
+      let filteredCharacters = characters.filter((character) => {
+        return character.name.toLowerCase().includes(searchString);
+      });
+      this.displayCharacters(filteredCharacters, charactersDOM);
     });
   };
+  static toggleDarkMode = () => {
+    const characterTiles = [...document.querySelectorAll(".character-tile")];
+    console.log(characterTiles);
+    const darkModeElems = document.querySelectorAll(".dark-mode-elements");
+    const lightModeElems = document.querySelectorAll(".light-mode-elements");
+    // darkModeElems.forEach( elem => {
+    //   elem.classList.toggle("character-tile-shadow-")
+    // })
+    darkModeBtn.addEventListener("click", () => {
+      mainContainer.classList.toggle("light-mode");
+      darkModeElems.forEach((elem) => {
+        elem.classList.toggle("light-mode");
+      });
+      lightModeElems.forEach((elem) => {
+        elem.classList.toggle("darken-light-text");
+      });
+      inputcontainer.classList.add("dark-light-input");
+    });
+  };
+  // ======
+
+  // static paginateCharacters = (charactersData, charactersDOM) => {
+  //   let {
+  //     count,
+  //     next: nextUrl,
+  //     previous: previousUrl,
+  //     results,
+  //   } = charactersData;
+  //   nextBtn.addEventListener("click", () => {
+  //     mainUrl = nextUrl;
+  //   });
+  // };
 }
 
 // STORAGE things
@@ -146,6 +183,13 @@ class Storage {
   static retriveCharacter = (nameTag) => {
     let characters = JSON.parse(localStorage.getItem("starWarsCharacters"));
     return characters.find((character) => character.name.includes(nameTag));
+  };
+  static retriveCharacters = (namematch) => {
+    let characters = JSON.parse(localStorage.getItem("starWarsCharacters"));
+    characters = characters.filter((character) =>
+      character.includes(namematch)
+    );
+    return characters;
   };
 }
 
@@ -160,17 +204,20 @@ class Helper {
 
 // PAGINATION things
 // paginate data
-console.log(urlHolder.url);
+
 // setup app
 document.addEventListener("DOMContentLoaded", () => {
   Data.getCharacters(urlHolder.url)
     .then((charactersData) => {
       spinner.classList.add("hide-item");
-      UI.displayCharacters(charactersData, charactersDOM);
-      UI.paginateCharacters(charactersData, charactersDOM);
+      let { results } = charactersData;
+
+      UI.displayCharacters(results, charactersDOM);
       Storage.saveCharacters(charactersData);
+      UI.searchCharacters(charactersData);
     })
     .then(() => {
       UI.populateSingleCharacter();
+      // UI.toggleDarkMode();
     });
 });

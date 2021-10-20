@@ -29,6 +29,11 @@ html {
 /* styles for main */
 main {
   background-color: var(--Very-Dark-Blue);
+  transition: var(--main-transition);
+  -webkit-transition: var(--main-transition);
+  -moz-transition: var(--main-transition);
+  -ms-transition: var(--main-transition);
+  -o-transition: var(--main-transition);
 }
 /* end of styles for main container */
 /* styles for header */
@@ -94,19 +99,18 @@ header {
   color: var(--White);
 }
 /* end of styles for search input container */
-.main-display-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 30px;
+
+.add-height {
+  height: 100vh;
 }
 /* back-button-container */
 .back-button-container {
   margin: var(--side-margin);
   transform: translate(-100%);
-  -webkit-transform: translateX(-100%);
-  -moz-transform: translateX(-100%);
-  -ms-transform: translateX(-100%);
-  -o-transform: translateX(-100%);
+  -webkit-transform: translate(-100%);
+  -moz-transform: translate(-100%);
+  -ms-transform: translate(-100%);
+  -o-transform: translate(-100%);
   transition: var(--main-transition);
   -webkit-transition: var(--main-transition);
   -moz-transition: var(--main-transition);
@@ -147,7 +151,7 @@ header {
   -moz-border-radius: var(--border-radius);
   -ms-border-radius: var(--border-radius);
   -o-border-radius: var(--border-radius);
-  border: none;
+  font-family: "Poppins", sans-serif;
 }
 .character-name {
   cursor: pointer;
@@ -171,6 +175,7 @@ header {
   align-items: center;
   text-align: center;
   padding: 10px 20px;
+  width: 100%;
   color: var(--White);
 }
 .info {
@@ -214,7 +219,6 @@ header {
   .character-img-container-info {
     width: 50%;
     height: 50%;
-    border: 1px solid gold;
   }
   .character-img {
     max-width: 100%;
@@ -227,6 +231,12 @@ header {
   }
 }
 @media only screen and (min-width: 426px) and (max-width: 1440px) {
+  .search-input-container {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+  }
+
   .all-characters-tile-display {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -237,18 +247,19 @@ header {
   .single-character-details-display {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    /* justify-content: space-evenly; */
     padding: 10px 0px;
   }
   .character-img-container-info {
-    width: 50%;
+    width: 30%;
     height: 50%;
+    margin-right: 10px;
   }
   .character-name-info {
-    font-size: 2.5em;
+    font-size: 2em;
   }
   .info {
-    font-size: 2em;
+    font-size: 1.5em;
   }
   /* end of styles for single-character-details-display */
   .page-btn {
@@ -264,6 +275,11 @@ header {
   -moz-transition: var(--main-transition);
   -ms-transition: var(--main-transition);
   -o-transition: var(--main-transition);
+  /* transform: translateX(-100%);
+  -webkit-transform: translateX(-100%);
+  -moz-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
+  -o-transform: translateX(-100%); */
 }
 .show-item {
   display: block;
@@ -273,42 +289,33 @@ header {
   -ms-transform: translateX(0%);
   -o-transform: translateX(0%);
 }
-/* ## Layout
 
-The designs were created to the following widths:
+.rabbit {
+  /* Dark Mode Elements */
+  --DarkBlue: hsl(209, 23%, 22%);
+  /* Dark Mode Background */
+  --Very-Dark-Blue: hsl(207, 26%, 17%);
+  /* Light Mode Text */
+  --other-Dark-Blue: hsl(200, 15%, 8%);
+  /* Light Mode Input) */
+  --Dark-Gray: hsl(0, 0%, 52%);
+  /* Light Mode Background */
+  --Very-Light-Gray: hsl(0, 0%, 98%);
+  /* Dark Mode Text & Light Mode Elements */
+  --White: hsl(0, 0%, 100%);
+  --border-radius: 7px;
+  --side-margin: 20px 20px;
+  --main-transition: 0.3s all ease;
+}
 
-- Mobile: 375px
-- Desktop: 1440px
-
-## Colors
-
-### Neutral
-
-- Dark Blue (Dark Mode Elements): hsl(209, 23%, 22%)
-- Very Dark Blue (Dark Mode Background): hsl(207, 26%, 17%)
-- Very Dark Blue (Light Mode Text): hsl(200, 15%, 8%)
-- Dark Gray (Light Mode Input): hsl(0, 0%, 52%)
-- Very Light Gray (Light Mode Background): hsl(0, 0%, 98%)
-- White (Dark Mode Text & Light Mode Elements): hsl(0, 0%, 100%)
-
-## Typography
-
-### Body Copy
-
-- Homepage Items: 14px
-- Detail Page: 16px
-
-### Fonts
-
-- Family: [Nunito Sans](https://fonts.google.com/specimen/Nunito+Sans)
-- Weights: 300, 600, 800
-
-## Icons
-
-For the icons, you can use a font icon library. Don't worry if the icons that you choose don't look exactly like they do on the design.
-
-Some suggestions can be found below:
-
-- [Font Awesome](https://fontawesome.com)
-- [IcoMoon](https://icomoon.io)
-- [Ionicons](https://ionicons.com) */
+.light-mode {
+  background-color: var(--Very-Light-Gray);
+  color: var(--other-Dark-Blue);
+}
+.darken-light-text {
+  color: var(--other-Dark-Blue);
+}
+.darken-light-input {
+  color: var(--other-Dark-Blue);
+  border: 1px solid var(--other-Dark-Blue);
+}
