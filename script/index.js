@@ -86,9 +86,9 @@ class UI {
     </div>
     <div class="full-info-container">
       <div class="full character-name-container">
-        <h2 class="character-name-info">
+        <p class="character-name-info">
           ${character.name}
-        </h2>
+        </p>
       </div>
       <ul class="mini-info">
         <li class="info">Gender: ${character.gender}</li>
@@ -211,7 +211,6 @@ document.addEventListener("DOMContentLoaded", () => {
     .then((charactersData) => {
       spinner.classList.add("hide-item");
       let { results } = charactersData;
-
       UI.displayCharacters(results, charactersDOM);
       Storage.saveCharacters(charactersData);
       UI.searchCharacters(charactersData);
